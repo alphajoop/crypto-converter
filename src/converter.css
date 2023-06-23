@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.crypto-card
+{
+    min-width: 400px;
+    text-align: center;
+    border: 1.5px solid black;
+}
+.select-box
+{
+    display:flex;
+    justify-content: space-between;
+
+}
