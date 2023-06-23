@@ -1,11 +1,11 @@
-
+import React from 'react';
 import Converter from "./Converter";
 
 function App() {
-  return (
-    <>
-    <Converter/>
-    </>
-  );
+    return (
+        <>
+            <Converter />
+        </>
+    );
 }
 export default App;
