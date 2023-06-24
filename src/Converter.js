@@ -15,17 +15,18 @@ function Converter() {
         fetchData(); // Fetch data when the component mounts
     }, []);
      
-    useEffect(()=>{//Triggers when either of the value in array changes
-        if(optionList.length==0)return
-       const firstSelectRate=optionList.find((item)=>{
-           return item.value===firstSelectValue;
-       }).rate//fetch the rate of first selected  value
-       const secondSelectRate=optionList.find((item)=>{
-         return item.value===secondSelectValue;
-        }).rate// fetch the rate for second select value
-        const resultValue=(inputValue*secondSelectRate)/firstSelectRate;// calculate the actual rate i,e convert currency
-        setResult(parseFloat(resultValue).toFixed(2));// update the result value
-    },[inputValue,firstSelectValue,secondSelectValue])
+    useEffect(() => {
+        if (optionList.length === 0) return; // check if optionList is not empty to avoid errors
+
+        const firstSelectRate = optionList.find((item) => item.value === firstSelectValue)?.rate; //fetch the rate of first selected  value
+        const secondSelectRate = optionList.find((item) => item.value === secondSelectValue)?.rate; // fetch the rate for second select value
+
+        if (firstSelectRate && secondSelectRate) {
+            const resultValue = (inputValue * secondSelectRate) / firstSelectRate; // calculate the actual rate i,e convert currency
+            setResult(parseFloat(resultValue).toFixed(2)); // update the result value
+        }
+    }, [optionList, inputValue, firstSelectValue, secondSelectValue]);
+
 
     async function fetchData() {
         const response = await fetch(apiUrl); // Fetch data from the API
