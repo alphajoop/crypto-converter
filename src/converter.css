@@ -16,6 +16,12 @@
     text-align: center;
     border: 1.5px solid black;
 }
+.crypto-card h1
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .select-box {
     display: flex;
